@@ -36,6 +36,7 @@ $GLOBALS['TCA']['sys_language']['columns']['static_lang_isocode'] = array(
 			'type' => 'group',
 			'internal_type' => 'db',
 			'allowed' => 'static_languages',
+			'default' => 0,
 			'foreign_table' => 'static_languages',
 			'suggestOptions' => [
 				'default' => [

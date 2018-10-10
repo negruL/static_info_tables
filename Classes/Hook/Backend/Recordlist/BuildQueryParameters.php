@@ -26,7 +26,7 @@ namespace SJBR\StaticInfoTables\Hook\Backend\Recordlist;
 use TYPO3\CMS\Core\Database\Query\QueryHelper;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Recordlist\RecordList\AbstractDatabaseRecordList;
+use TYPO3\CMS\Recordlist\RecordList\DatabaseRecordList;
 
 /**
  * Order records according to language field of current language
@@ -41,10 +41,10 @@ class BuildQueryParameters
 	 * @param int $pageId
 	 * @param string $additionalConstraints
 	 * @param string $fieldList
-	 * @param AbstractDatabaseRecordList $parentObj
+	 * @param $parentObj
 	 * @return void
 	 */
-	public function buildQueryParametersPostProcess(&$parameters, $table, $pageId, $additionalConstraints, $fieldList, AbstractDatabaseRecordList $parentObj)
+	public function buildQueryParametersPostProcess(&$parameters, $table, $pageId, $additionalConstraints, $fieldList, $parentObj)
 	{
 		if (in_array($table, array_keys($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['static_info_tables']['tables']))) {
 			$lang = substr(strtolower($this->getLanguageService()->lang), 0, 2);
